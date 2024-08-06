@@ -1,0 +1,54 @@
+.calendar {
+  inline-size: 350px;
+  min-block-size: 240px;
+  display: flex;
+  flex-direction: column;
+
+  .header {
+    display: grid;
+    grid-template-columns: 44px 1fr 44px;
+    block-size: 44px;
+    margin-block-end: 1rem;
+
+    .currentMonth {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .selectMonth {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: var(--color-default);
+      &:hover{
+        background-color: var(--color-hover); 
+      }
+    }
+  }
+  
+  .month {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+  }
+  .day {
+    inline-size: 50px;
+    block-size: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-default);
+
+    &:hover{
+      background-color: var(--color-hover); 
+    }
+
+    &.highlight{
+      background-color: var(--color-highlight); 
+    }
+
+    &.selected{
+      background-color: var(--color-selected); 
+    }
+  }
+}

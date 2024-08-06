@@ -5,6 +5,18 @@
   *{
     box-sizing: border-box;
   }
+  button{
+    -webkit-appearance: none;
+    border-radius: 0;
+    text-align: inherit;
+    background: none;
+    box-shadow: none;
+    padding: 0;
+    cursor: pointer;
+    border: none;
+    color: inherit;
+    font: inherit;
+  }
 }
 
 @layer variables{
@@ -12,8 +24,8 @@
     --color-default: white;
     --color-highlight: #ffff76;
     --color-hover: #e6e6e6;
-    --color-active: #006edc;  
-    --color-faded: #757575; 
+    --color-selected: #006edc;  
+    --color-muted: #757575; 
   }
 }
 
@@ -22,4 +34,12 @@
   line-height: 1.5;
   font-weight: 400;
   Font-size: 16px;
+}
+
+body{
+  inline-size: 100dvw;
+  block-size: 100dvh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
