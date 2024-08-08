@@ -1,13 +1,15 @@
 import { useState } from 'react';
 import Calendar from './calendar/Calendar';
-function App() {
-  const [startDate, setStartDate] = useState(null);
-  const [endDate, setEndDate] = useState(null);
+import { enUS } from 'date-fns/locale';
 
-  function handleSelectRange(dates) {
-    const [start, end] = dates;
-    setStartDate(start);
-    setEndDate(end);
+type DateRange = [Date | null, Date | null];
+
+function App() {
+  const [dateRange, setDateRange] = useState<DateRange>([null, null]);
+  const [startDate, endDate] = dateRange;
+
+  function handleSelectRange(dates: DateRange) {
+    setDateRange(dates);
   }
 
   return (
@@ -15,6 +17,7 @@ function App() {
       onSelectRange={handleSelectRange}
       startDate={startDate}
       endDate={endDate}
+      locale={enUS}
     />
   );
 }
