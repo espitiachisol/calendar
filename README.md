@@ -1,30 +1,98 @@
-# React + TypeScript + Vite
+# Calendar Project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a calendar application built with React, TypeScript, and Vite, allowing users to easily pick start and end dates across months.
 
-Currently, two official plugins are available:
+## Table of Contents
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [Requirements](#requirements)
+- [Running the Application](#running-the-application)
+- [Usage](#usage)
+- [Scripts](#scripts)
+- [Project Structure](#project-structure)
+- [Key Dependencies](#key-dependencies)
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Requirements
 
-- Configure the top-level `parserOptions` property like this:
+Before you begin, ensure you have met the following requirements:
+- Node.js (version 14 or higher)
+- npm (version 6 or higher) or yarn (version 1.22 or higher)
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json', './tsconfig.app.json'],
-    tsconfigRootDir: __dirname,
-  },
+
+## Running the Application
+
+1. Install dependencies:
+    ```sh
+    npm install
+    ```
+2. To start the development server
+    ```sh
+    npm run dev
+    ```
+
+## Usage
+Here's an example of basic usage:
+```tsx
+type DateRange = [Date | null, Date | null];
+
+function App() {
+    const [dateRange, setDateRange] = useState<DateRange>([null, null]);
+    const [startDate, endDate] = dateRange;
+
+    function handleSelectRange(dates: DateRange) {
+        setDateRange(dates);
+    }
+
+    return (
+        <Calendar
+        onSelectRange={handleSelectRange}
+        startDate={startDate}
+        endDate={endDate}
+        />
+    );
 }
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## Scripts
+
+- `dev`: Starts the development server.
+- `build`: Builds the application for production.
+- `lint`: Runs ESLint to check for linting errors.
+- `preview`: Previews the production build locally.
+- `lint:fix`: Runs ESLint and automatically fixes problems.
+
+
+## Project Structure
+
+    ├── src
+    │   ├── calendar
+    │   │   ├── calendar_utils.ts
+    │   │   ├── Calendar.tsx
+    │   │   ├── Calendar.module.css
+    │   │   ├── Header.tsx
+    │   │   ├── Month.tsx
+    │   │   ├── Day.tsx
+    │   │   └── MonthDates.tsx
+    │   ├── App.tsx
+    │   ├── index.css
+    │   ├── main.tsx
+    │   ├── normalize.css
+    │   └── index.tsx
+    ├── public
+    ├── .eslintrc.js
+    ├── .prettierrc.cjs
+    ├── tsconfig.json
+    ├── tsconfig.node.json
+    ├── tsconfig.app.json
+    ├── package.json
+    └── README.md
+
+## Key Dependencies
+
+- [React](https://reactjs.org/)
+- [React-DOM](https://www.npmjs.com/package/react-dom)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Vite](https://vitejs.dev/)
+- [ESLint](https://eslint.org/)
+- [Prettier](https://prettier.io/)
+- [date-fns](https://date-fns.org/)
