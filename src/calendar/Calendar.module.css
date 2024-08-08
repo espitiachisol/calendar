@@ -1,13 +1,13 @@
 .calendar {
-  inline-size: 350px;
-  min-block-size: 240px;
+  inline-size: 21.875rem;
+  min-block-size: 15rem;
   display: flex;
   flex-direction: column;
 
   .header {
     display: grid;
-    grid-template-columns: 44px 1fr 44px;
-    block-size: 44px;
+    grid-template-columns: 2.75rem 1fr 2.75rem;
+    block-size: 2.75rem;
     margin-block-end: 1rem;
 
     .currentMonth {
@@ -32,8 +32,8 @@
     grid-template-columns: repeat(7, 1fr);
   }
   .day {
-    inline-size: 50px;
-    block-size: 36px;
+    inline-size: 3.125rem;
+    block-size: 2.25rem;
     display: flex;
     justify-content: center;
     align-items: center;
