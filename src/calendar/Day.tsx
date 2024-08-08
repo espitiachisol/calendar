@@ -23,6 +23,7 @@ export function Day({
   endDate,
   onDayClick,
   currentMonth,
+  locale,
 }: DayProps) {
   let className = `${styles.day} `;
   if (isToday(date)) {
@@ -41,7 +42,7 @@ export function Day({
       className={className}
       onClick={() => onDayClick(date)}
     >
-      {formatDate(date, 'do')}
+      {formatDate(date, 'do', locale)}
     </button>
   );
 }

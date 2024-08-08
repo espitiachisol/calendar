@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import Calendar from './calendar/Calendar';
-import { enUS } from 'date-fns/locale';
+// import { enUS } from 'date-fns/locale';
 
 type DateRange = [Date | null, Date | null];
 
@@ -17,7 +17,6 @@ function App() {
       onSelectRange={handleSelectRange}
       startDate={startDate}
       endDate={endDate}
-      locale={enUS}
     />
   );
 }
